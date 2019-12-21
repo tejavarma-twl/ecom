@@ -8,17 +8,20 @@ import { CommonService } from 'src/app/common.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-
+  allproducts = []
   constructor(private c: CommonService) { }
 
   ngOnInit() {
-    // console.log("yes initiated!")
-    this.c.cart.push("hello");
-    console.log(this.c.getCartItems())
+    this.allproducts = this.c.products;
   }
 
   addToCart(product){
-    this.c.cart.push(product);
+    if(this.c.cart.hasOwnProperty(product.id)){
+      this.c.cart[product.id].quantity += 1
+    }else{
+      this.c.cart[product.id] = product
+    }
+    console.log(this.c.cart)
   }
 
 }

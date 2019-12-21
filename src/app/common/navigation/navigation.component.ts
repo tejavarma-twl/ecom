@@ -11,7 +11,7 @@ items=0;
   constructor(private c: CommonService) { }
 
   ngOnInit() {
-    this.items = this.c.cart.length;
+    // this.items = this.c.cart.length;
   }
 
 }

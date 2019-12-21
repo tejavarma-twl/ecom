@@ -1,2 +1,25 @@
-<p>cart works!</p>
-<button type="button" (click)="getCartList()"></button>
+<table class="table table-borderless">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">price</th>
+        <th scope="col">quantity</th>
+        <th scope="col">total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cart_item of mycart">
+        <th scope="row">1</th>
+        <td>{{cart_item.name}}</td>
+        <td>{{cart_item.price}}</td>
+        <td>
+            <button class="btn btn-sm btn-primary" (click)="decreaseQuanity(cart_item.id)">-</button>
+            <span class="p-3">{{cart_item.quantity}}</span>
+            <button class="btn btn-sm btn-primary"(click)="increaseQuanity(cart_item.id)">+</button>
+        </td>
+        <td>{{cart_item.price*cart_item.quantity}}</td>
+      </tr>
+      <h2>{{total}}</h2>
+    </tbody>
+  </table>

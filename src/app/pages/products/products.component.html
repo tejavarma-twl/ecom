@@ -1,8 +1,13 @@
 <p>products works!</p>
 
-
-
-<button type="button" (click)="addToCart('shoes')">Add item 1 to cart</button>
-<button type="button" (click)="addToCart('bikes')">Add item 2 to cart</button>
-<button type="button" (click)="addToCart('cars')">Add item 3 to cart</button>
-<button type="button" (click)="addToCart('laptop')">Add item 4 to cart</button>
+<div class="row">
+    <div class="col-sm-3 mb-3" *ngFor="let product of allproducts">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p class="card-text">{{product.price}}</p>
+                <button class="btn btn-primary" (click)="addToCart(product)">Add to cart</button>
+            </div>
+        </div>
+    </div>
+</div>
